@@ -1,0 +1,18 @@
+version: '3.3'
+ 
+services:
+    node-express:
+        build:
+            context: ./
+            dockerfile: ./Dockerfiles/nodejs/Dockerfile
+            args:
+                PROJECRT_NAME: ${PROJECT_NAME}
+        image: the-complete-nodejs/node-server
+        container_name: thecompletenodejs-node-server
+        command: npm start
+        ports:
+            - ${PORT}:3000
+        volumes:
+            - ./projects:/public/projects
+            - /public/projects/${PROJECT_NAME}/node_modules
+        
