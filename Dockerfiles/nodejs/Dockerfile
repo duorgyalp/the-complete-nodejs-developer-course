@@ -8,5 +8,6 @@ ENV PROJECT_NAME $PROJECRT_NAME
 WORKDIR /public/projects/${PROJECRT_NAME}
 COPY . /public
 RUN npm install
+RUN npm install nodemon -g
 
 CMD [ "npm", "start" ]
